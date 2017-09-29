@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Movies Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-controller='MainCtrl' class="container">
+    <div class="row form-section">
+      <div class="col-md-12" ng-if="error">  
+        <div class="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> {{error}}
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form row">
+          <div class="form-group col-md-3">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" ng-model="movie.Name"/>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Cover</label>
+            <input type="text" class="form-control" name="name" ng-model="movie.Cover"/>
+          </div>
+
+        </div>
+        <button class="btn btn-success" ng-click="create()">Create</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card col-md-3 offset-md-4" ng-repeat="movie in movies">
+        <img class="card-img-top" src="{{movie.Cover}}" alt="{{movie.Name}}">
+        <div class="card-block">
+          <h4 class="card-title">{{movie.Name}}</h4>
+          <p class="card-text"><small class="text-muted">#ID {{movie.Id}}</small></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" charset="utf-8"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+</html>
